@@ -2,13 +2,15 @@
 # A simple, yet powerful, framework for building a python script.
 from rich.console import Console
 from utils.console import print_markdown, print_step, print_substep
+from utils.clear import clear
 
 console = Console()
 
-print_markdown("""
-# Welcome to Builing Blocks! 
-""")
+clear()
 
+print_markdown("""
+# Welcome to pyBlocks! 
+""")
 
 def add_print():
     print_step("Add print")
@@ -18,6 +20,7 @@ def add_print():
         f.write(f"""
 print("{whatToPrint}")        
     """)
+
 
 def add_input():
     print_step("Add input")
@@ -72,24 +75,33 @@ def add_if():
     console.print("What shloud happen if the condition is false?")
     ifFalse = input(" > ")
     with open("result.py", "a") as f:
-            f.write(f"""
+        f.write(f"""
 if {varName} {checkType} {checkValue}:
     {ifTrue}
 else:
     {ifFalse}
 """)
 
+# Add list
+
 def main():
-    console.print("What do you want to do?")
-    answer = input(" > ")
-    if answer == "add print":
-        add_print()
-    elif answer == "add input":
-        add_input()
-    elif answer == "add variable":
-        add_variable()
-    elif answer == "add if":
-        add_if()
+    while True:
+        try:
+            console.print("What do you want to do?")
+            answer = input(" > ")
+        except KeyboardInterrupt:
+            console.print("Goodbye!")
+            break
+        if answer == "add print":
+            add_print()
+        elif answer == "add input":
+            add_input()
+        elif answer == "add variable":
+            add_variable()
+        elif answer == "add if":
+            add_if()
+        elif answer == "done":
+            break
 
 
 if __name__ == '__main__':

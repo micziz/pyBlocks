@@ -9,7 +9,7 @@ Build python scripts with 0 lines of code!
 
 ## Installation
 
-Buildng Blocks is pretty minimal. It requires no external libraries.
+pyBlocks is pretty minimal. It requires no external libraries.
 
 To install it, first follow the instructions for installing python [here](https://www.python.org/downloads/). You also need to install git [here](https://git-scm.com)
 
@@ -19,7 +19,13 @@ To install it, first follow the instructions for installing python [here](https:
 git clone https://github.com/micziz/pyblocks
 ```
 
-2. Run the file
+2. Change to the directory
+
+```
+cd pyblocks
+```
+
+3. Run the file
 
 ```
 python3 main.py
